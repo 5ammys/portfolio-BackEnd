@@ -19,8 +19,8 @@ public class EducacionImplement implements EducacionService{
     }
 
     @Override
-    public List<Educacion> findEducacion() {
-        return repository.findAll();
+    public List<Educacion> findEducacionByIdUsuario(Long idUsuario) {
+        return repository.findEducacionByIdUsuario(idUsuario);
     }
 
     @Override

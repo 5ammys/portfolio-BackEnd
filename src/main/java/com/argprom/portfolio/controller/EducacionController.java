@@ -13,9 +13,9 @@ import java.util.List;
 public class EducacionController {
     @Autowired private EducacionService educacionService;
 
-    @GetMapping("/")
-    public List<Educacion> get(){
-        return educacionService.findEducacion();
+    @GetMapping("/{idusuario}")
+    public List<Educacion> getEduByUser(@PathVariable("idusuario") Long fkUsuario){
+        return educacionService.findEducacionByIdUsuario(fkUsuario);
     }
 
     @PostMapping("/create")

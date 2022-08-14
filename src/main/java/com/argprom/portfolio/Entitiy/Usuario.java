@@ -1,5 +1,7 @@
 package com.argprom.portfolio.Entitiy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,22 +18,27 @@ public class Usuario  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false,updatable = false)
     private Long id;
-    private String nombre;
     private String apellido;
+    private String nombre;
     private String email;
     private String contrasena;
-    private String descripcion;
     private String perfilProfesional;
+    private String descripcion;
     private String fotoPerfil;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval= true,mappedBy = "usuario")
+    @JsonIgnore
     private Set<UsuarioHabilidad> usuarioHabilidad=new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval= true,mappedBy = "usuario")
+    @JsonIgnore
     private Set<Educacion> educacions=new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true,mappedBy = "usuario")
+    @JsonIgnore
     private Set<Proyecto> proyectos=new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true,mappedBy = "usuario")
+    @JsonIgnore
     private Set<RedesUsuario> redesUsuarios=new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true,mappedBy = "usuario")
+    @JsonIgnore
     private Set<ExperienciaLaboral> experienciaLaborals=new HashSet<>();
 
 

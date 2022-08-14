@@ -1,4 +1,5 @@
 package com.argprom.portfolio.Entitiy;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ public class Educacion {
     private String fechaInicio;
     private String fechaFin;
     @ManyToOne
+    @JsonIgnore
     private Usuario usuario;
 
     public Educacion() {}

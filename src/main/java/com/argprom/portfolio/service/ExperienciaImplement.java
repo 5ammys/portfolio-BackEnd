@@ -19,8 +19,8 @@ public class ExperienciaImplement implements ExperienciaService{
     }
 
     @Override
-    public List<ExperienciaLaboral> getExperiencia() {
-        return repository.findAll();
+    public List<ExperienciaLaboral> getExperienciaByIdUser(Long id) {
+        return repository.findExperienciaLaboralByUser(id);
     }
 
     @Override

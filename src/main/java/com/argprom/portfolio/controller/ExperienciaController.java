@@ -14,9 +14,9 @@ import java.util.List;
 public class ExperienciaController {
     @Autowired private ExperienciaService experienciaService;
 
-    @GetMapping("/")
-    public List<ExperienciaLaboral> get(){
-        return experienciaService.getExperiencia();
+    @GetMapping("/{id}")
+    public List<ExperienciaLaboral> get(@PathVariable("id") Long id){
+        return experienciaService.getExperienciaByIdUser(id);
     }
 
     @PostMapping("/create")

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface EducacionService {
     public void guardarEducacion(Educacion educacion);
-    public List<Educacion> findEducacion();
+    public List<Educacion> findEducacionByIdUsuario(Long id);
     public void deleteEducacion(Long id);
 }

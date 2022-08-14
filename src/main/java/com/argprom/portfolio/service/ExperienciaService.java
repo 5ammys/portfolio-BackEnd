@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ExperienciaService {
     public void saveExperiencia(ExperienciaLaboral experienciaLaboral);
-    public List<ExperienciaLaboral> getExperiencia();
+    public List<ExperienciaLaboral> getExperienciaByIdUser(Long id);
     public void deleteExperiencia(Long id);
     
 }
