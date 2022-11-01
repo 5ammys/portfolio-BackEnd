@@ -1,5 +1,6 @@
 package com.argprom.portfolio.Entitiy;
 
+import com.argprom.portfolio.security.entity.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 

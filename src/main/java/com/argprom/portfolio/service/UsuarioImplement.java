@@ -1,7 +1,7 @@
 package com.argprom.portfolio.service;
 
-import com.argprom.portfolio.Entitiy.Usuario;
-import com.argprom.portfolio.repository.UsuarioRepository;
+import com.argprom.portfolio.security.entity.Usuario;
+import com.argprom.portfolio.security.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +16,8 @@ public class UsuarioImplement implements UsuarioService{
     }
 
     @Override
-    public Usuario findUsuario(Long id) {
-        return repository.findById(id).orElse(null);
+    public Usuario findUsuario(String username) {
+        return repository.findUserByUsername(username).orElse(null);
     }
 
     @Override

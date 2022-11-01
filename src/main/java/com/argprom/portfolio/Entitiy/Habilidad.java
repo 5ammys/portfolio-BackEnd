@@ -1,5 +1,6 @@
 package com.argprom.portfolio.Entitiy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,7 @@ public class Habilidad{
     private String nombre;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true,mappedBy = "habilidad")
+    @JsonIgnore
     private Set<UsuarioHabilidad> usuarioHabilidadSet=new HashSet<>();
 
     public Habilidad() {

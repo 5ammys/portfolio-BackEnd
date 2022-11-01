@@ -1,8 +1,11 @@
 package com.argprom.portfolio.controller;
 
-import com.argprom.portfolio.Entitiy.Usuario;
+import com.argprom.portfolio.security.entity.Usuario;
 import com.argprom.portfolio.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-
-    @GetMapping("/{id}")
-    public Usuario get(@PathVariable("id") Long id){
-        return usuarioService.findUsuario(id);
+    //@PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/{username}")
+    public ResponseEntity<Usuario> get(@PathVariable("username") String username){
+        return new ResponseEntity<>(usuarioService.findUsuario(username), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/crear")
